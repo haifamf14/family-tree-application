@@ -1,0 +1,354 @@
+/* Global styles */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #fff0f5; /* Soft pink background */
+  margin: 0;
+  padding: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/pink-dust.png');
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 30px 20px 20px;
+  color: #d81b60; /* Deep pink */
+  position: relative;
+  background-color: #ffd6e7; /* Light pink header */
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 12px rgba(216, 27, 96, 0.1);
+}
+
+.header h1 {
+  font-size: 36px;
+  margin: 0;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+.header p {
+  font-size: 14px;
+  margin: 10px 0 0;
+  color: #f06292; /* Medium pink */
+}
+
+.nav-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.nav-buttons button {
+  background-color: #f06292; /* Medium pink */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 14px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-buttons button:hover {
+  background-color: #d81b60; /* Deep pink */
+  transform: translateY(-2px);
+}
+
+/* Home Button */
+.home-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #ffb6c1; /* Light pink */
+  color: #d81b60; /* Deep pink */
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+  box-shadow: 0 4px 10px rgba(255, 182, 193, 0.5);
+  transition: all 0.3s ease;
+  z-index: 1001;
+  border: 1px solid #ffd6e7;
+}
+
+.home-btn:hover {
+  background-color: #f06292; /* Medium pink */
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Form styles */
+.form-container {
+  background-color: #ffe6ee; /* Very light pink */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(216, 27, 96, 0.1);
+  padding: 25px;
+  margin: 20px auto;
+  max-width: 700px;
+  border: 1px solid #ffb6c1;
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #d81b60; /* Deep pink */
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #ad1457; /* Dark pink */
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ffb6c1;
+  border-radius: 5px;
+  background-color: #fff5f7; /* Very light pink */
+  box-sizing: border-box;
+  font-family: 'Georgia', serif;
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #f06292;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(240, 98, 146, 0.2);
+}
+
+button {
+  background-color: #f06292; /* Medium pink */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+  font-size: 16px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background-color: #d81b60; /* Deep pink */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Tree container */
+#tree-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  background-color: #ffe6ee; /* Very light pink */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(216, 27, 96, 0.1);
+  border: 1px solid #ffb6c1;
+}
+
+#tree {
+  background-color: #ffe6ee; /* Very light pink */
+  border-radius: 10px;
+  overflow: auto;
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* D3 nodes */
+.node-content {
+  width: 120px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #fff0f5; /* Soft pink */
+  border-radius: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  border: 1px solid #ffb6c1;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.node-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(216, 27, 96, 0.2);
+  background-color: #ffd6e7;
+}
+
+.node-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffb6c1;
+  margin-bottom: 8px;
+  background-color: #f06292;;
+}
+
+.node-person .node-info {
+  background-color: #f06292; /* Medium pink */
+}
+
+.node-spouse .node-info {
+  background-color: #ffb6c1; /* Light pink */
+}
+
+.node-info {
+  width: 100%;
+  padding: 5px 0;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  color: #ad1457;;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.node-details {
+  font-size: 10px;
+  color: #ad1457; /* Dark pink */
+  width: 100%;
+}
+
+.link {
+  fill: none;
+  stroke: #ffb6c1; /* Light pink */
+  stroke-width: 2;
+}
+
+.spouse-link {
+  stroke: #f06292; /* Medium pink */
+  stroke-width: 2;
+  stroke-dasharray: 5,5;
+}
+
+/* Popup styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(216, 27, 96, 0.5); /* Semi-transparent pink */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.popup-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  width: 450px;
+  max-width: 90%;
+  box-shadow: 0 0 20px rgba(216, 27, 96, 0.3);
+  position: relative;
+  border: 1px solid #ffb6c1;
+}
+
+.close-popup {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #d81b60; /* Deep pink */
+  transition: color 0.3s;
+}
+
+.close-popup:hover {
+  color: #ad1457; /* Dark pink */
+}
+
+.popup-field {
+  padding: 8px;
+  background-color: #fff5f7; /* Very light pink */
+  border-radius: 4px;
+  margin-bottom: 5px;
+  border: 1px solid #ffe6ee;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.popup-buttons button {
+  margin: 0;
+  width: 48%;
+}
+
+.delete-btn {
+  background-color: #e53935;
+}
+
+.delete-btn:hover {
+  background-color: #c62828;
+}
+
+.edit-btn {
+  background-color: #f06292; /* Medium pink */
+}
+
+.edit-btn:hover {
+  background-color: #d81b60; /* Deep pink */
+}
+
+.save-btn {
+  background-color: #43a047;
+}
+
+.save-btn:hover {
+  background-color: #2e7d32;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 28px;
+  }
+  
+  .form-container {
+    padding: 15px;
+    margin: 15px;
+  }
+  
+  #tree-container {
+    margin: 20px 10px;
+    padding: 10px;
+  }
+  
+  .node-content {
+    width: 100px;
+    height: 140px;
+  }
+  
+  .home-btn {
+    padding: 8px 15px;
+    font-size: 12px;
+  }
+}

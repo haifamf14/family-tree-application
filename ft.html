@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Family Tree</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff0f7;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: hotpink;
+    }
+
+    .tree ul {
+      padding-top: 20px;
+      position: relative;
+    }
+
+    .tree li {
+      float: left;
+      list-style-type: none;
+      text-align: center;
+      position: relative;
+      padding: 20px 5px 0 5px;
+    }
+
+    .tree li::before, .tree li::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 50%;
+      border-top: 2px solid pink;
+      height: 20px;
+    }
+
+    .tree li::before {
+      right: 50%;
+      border-right: 2px solid pink;
+    }
+
+    .tree li::after {
+      left: 50%;
+      border-left: 2px solid pink;
+    }
+
+    .tree li:only-child::before,
+    .tree li:only-child::after {
+      display: none;
+    }
+
+    .tree li .member {
+      background: white;
+      border: 2px solid hotpink;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px pink;
+      display: inline-block;
+      width: 150px;
+      cursor: pointer;
+    }
+
+    .member img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid pink;
+    }
+
+    .member h3 {
+      margin: 5px 0 0;
+      font-size: 16px;
+      color: deeppink;
+    }
+
+    .member p {
+      margin: 2px 0;
+      font-size: 12px;
+      color: #555;
+    }
+
+    #form-link {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    #form-link a {
+      text-decoration: none;
+      background: hotpink;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Interactive Family Tree</h1>
+
+  <div class="tree">
+    <ul>
+      <li>
+        <div class="member">
+          <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Grandpa">
+          <h3>Grandpa Ali</h3>
+          <p>DOB: 1950-05-10</p>
+          <p>Father</p>
+        </div>
+        <ul>
+          <li>
+            <div class="member">
+              <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Dad">
+              <h3>Dad Ahmad</h3>
+              <p>DOB: 1975-04-20</p>
+              <p>Son</p>
+            </div>
+            <ul>
+              <li>
+                <div class="member">
+                  <img src="https://randomuser.me/api/portraits/men/10.jpg" alt="You">
+                  <h3>You (EPA)</h3>
+                  <p>DOB: 2000-09-15</p>
+                  <p>Grandson</p>
+                </div>
+              </li>
+              <li>
+                <div class="member">
+                  <img src="https://randomuser.me/api/portraits/women/30.jpg" alt="Sister">
+                  <h3>Fatimah</h3>
+                  <p>DOB: 2002-11-03</p>
+                  <p>Granddaughter</p>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div id="form-link">
+    <a href="family-form.html">Add Family Member ➕</a>
+  </div>
+</body>
+</html>

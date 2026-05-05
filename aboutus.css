@@ -1,0 +1,108 @@
+  body {
+      background: #ffe6f7;
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    /* Home Button */
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      background: #ff66cc;
+      color: white;
+      padding: 12px 20px;
+      font-size: 0.7em;
+      border-radius: 15px;
+      text-decoration: none;
+      box-shadow: 0 0 10px #ff33aa;
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+
+    .home-btn:hover {
+      transform: scale(1.1);
+      background: #ff3399;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #ff00cc;
+      margin-top: 100px;
+      text-shadow: 2px 2px #ff99cc;
+    }
+
+    .about-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px auto;
+      flex-wrap: wrap;
+      padding-bottom: 40px;
+    }
+
+    .profile-box {
+      background: white;
+      border: 3px dashed #ff33cc;
+      border-radius: 20px;
+      padding: 30px;
+      width: 300px;
+      box-shadow: 0 0 20px #ff99cc;
+      opacity: 0;
+      transform: translateY(100px);
+      animation: slideUp 1s forwards;
+    }
+
+    .profile-box:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    .profile-box img {
+      width: 100px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+
+    .profile-name {
+      font-size: 1em;
+      color: #ff00cc;
+      margin: 10px 0;
+    }
+
+    .profile-desc {
+      font-size: 0.6em;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .social-buttons a {
+      margin: 0 8px;
+      text-decoration: none;
+      font-size: 0.6em;
+      background: #ff66cc;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px #ff66cc;
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+
+    .social-buttons a:hover {
+      transform: scale(1.1);
+      background: #ff3399;
+    }
+
+    /* Clean Slide-Up Animation */
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }

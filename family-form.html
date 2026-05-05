@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Family Member</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff0f7;
+      padding: 30px;
+    }
+
+    h2 {
+      color: deeppink;
+      text-align: center;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px pink;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid pink;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      background: hotpink;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: deeppink;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Add New Family Member</h2>
+
+<form id="familyForm">
+  <label for="name">Full Name:</label>
+  <input type="text" id="name" required>
+
+  <label for="dob">Date of Birth:</label>
+  <input type="date" id="dob" required>
+
+  <label for="relation">Relation:</label>
+  <input type="text" id="relation" required>
+
+  <label for="photo">Photo URL:</label>
+  <input type="url" id="photo" placeholder="https://example.com/photo.jpg">
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  document.getElementById("familyForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const member = {
+      name: document.getElementById("name").value,
+      dob: document.getElementById("dob").value,
+      relation: document.getElementById("relation").value,
+      photo: document.getElementById("photo").value
+    };
+
+    console.log("New Family Member:", member);
+    alert("Family member submitted! (Check console for data)");
+
+    // Next: save to JSON / localStorage
+    document.getElementById("familyForm").reset();
+  });
+</script>
+
+</body>
+</html>

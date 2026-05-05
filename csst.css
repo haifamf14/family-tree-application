@@ -1,0 +1,119 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f1e9;
+  margin: 0;
+  padding: 20px;
+}
+
+#tree-container {
+  position: relative;
+  min-height: 400px;
+  margin: 20px auto;
+  width: 90%;
+  border: 2px solid #ccc;
+  background: #fff9f0;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.family-node {
+  display: inline-block;
+  text-align: center;
+  margin: 20px;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid #999;
+  border-radius: 10px;
+  background: #ffffffd9;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.family-node img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.popup {
+  position: absolute;
+  background: #fff;
+  border: 2px solid #999;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  width: 220px;
+  z-index: 1000;
+  background: #f9f3e3;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.add-btn {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.blue { background: #a8d1f1; }
+.pink { background: #f9c4d2; }
+
+#cancel-popup, #cancel-form {
+  grid-column: span 2;
+  margin-top: 10px;
+  padding: 5px;
+  background: #eee;
+}
+
+#form-popup {
+  position: fixed;
+  top: 30%;
+  left: 40%;
+  width: 250px;
+  background: #fff7ee;
+  border: 2px solid #999;
+  padding: 15px;
+  border-radius: 10px;
+  z-index: 1100;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input {
+  width: 100%;
+  padding: 5px;
+  margin-top: 3px;
+}
+
+#save-person {
+  margin-top: 10px;
+  background: #b8e0c7;
+  border: none;
+  padding: 6px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-center {
+  grid-column: span 2;
+  text-align: center;
+}
+.profile-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ddd;
+  margin: 5px auto;
+}

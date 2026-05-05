@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Johor Family Tree</title>
+  <link rel="stylesheet" href="famk.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Kelantan Family Tree</h1>
+    <p>©2025 Digital Family Tree</p>
+    <div class="nav-buttons">
+     <button id="home-btn" onclick="window.location.href='index.html'">Home</button>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <h2>Add Family Member</h2>
+    <form id="family-form">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="relation">Relation:</label>
+        <select id="relation" required>
+          <option value="">Select relation</option>
+          <option value="Grandfather">Grandfather</option>
+          <option value="Grandmother">Grandmother</option>
+          <option value="Father">Father</option>
+          <option value="Mother">Mother</option>
+          <option value="Uncle">Uncle</option>
+          <option value="Aunt">Aunt</option>
+          <option value="Brother">Brother</option>
+          <option value="Sister">Sister</option>
+          <option value="Cousin">Cousin</option>
+          <option value="Me">Me</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob">
+      </div>
+      <div class="form-group">
+        <label for="region">Region:</label>
+        <input type="text" id="region">
+      </div>
+      <div class="form-group">
+        <label for="photo">Photo URL:</label>
+        <input type="text" id="photo">
+      </div>
+      <div class="form-group">
+        <label for="spouse-name">Spouse Name (if applicable):</label>
+        <input type="text" id="spouse-name">
+      </div>
+      <div class="form-group">
+        <label for="spouse-relation">Spouse Relation:</label>
+        <select id="spouse-relation">
+          <option value="">Select relation</option>
+          <option value="Grandfather">Grandfather</option>
+          <option value="Grandmother">Grandmother</option>
+          <option value="Father">Father</option>
+          <option value="Mother">Mother</option>
+          <option value="Husband">Husband</option>
+          <option value="Wife">Wife</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="parent">Parent (if not root):</label>
+        <select id="parent">
+          <option value="">Select parent</option>
+          <option value="Tok Pa">Tok Pa</option>
+          <option value="Mak">Mak</option>
+          <option value="Pak Cik A">Pak Cik A</option>
+        </select>
+      </div>
+      <button type="submit">Add Member</button>
+    </form>
+  </div>
+
+  <div id="tree-container">
+    <div id="tree"></div>
+  </div>
+
+  <div class="popup-overlay" id="member-popup">
+    <div class="popup-content">
+      <span class="close-popup">&times;</span>
+      <h2>Family Member Details</h2>
+      <div class="form-group">
+        <label>Name:</label>
+        <div id="popup-name" class="popup-field"></div>
+      </div>
+      <div class="form-group">
+        <label>Relation:</label>
+        <div id="popup-relation" class="popup-field"></div>
+      </div>
+      <div class="form-group">
+        <label>Date of Birth:</label>
+        <div id="popup-dob" class="popup-field"></div>
+      </div>
+      <div class="form-group">
+        <label>Region:</label>
+        <div id="popup-region" class="popup-field"></div>
+      </div>
+      <div class="form-group">
+        <label>Photo:</label>
+        <img id="popup-photo" src="" alt="Member photo" style="max-width: 100px; display: block; margin-top: 5px;">
+      </div>
+      <div id="popup-spouse-section">
+        <h3>Spouse Details</h3>
+        <div class="form-group">
+          <label>Spouse Name:</label>
+          <div id="popup-spouse-name" class="popup-field"></div>
+        </div>
+        <div class="form-group">
+          <label>Spouse Relation:</label>
+          <div id="popup-spouse-relation" class="popup-field"></div>
+        </div>
+      </div>
+      <div class="popup-buttons">
+        <button class="edit-btn" id="edit-btn">Edit</button>
+        <button class="delete-btn" id="delete-btn">Delete</button>
+      </div>
+      <div class="popup-buttons" id="save-buttons" style="display: none;">
+        <button class="save-btn" id="save-btn">Save Changes</button>
+        <button class="delete-btn" id="cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="famk.js"></script>
+</body>
+</html>

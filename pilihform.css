@@ -1,0 +1,53 @@
+body {
+    background: linear-gradient(135deg, #ffe6f2, #ffd6f9);
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .y2k-card {
+    background-color: #fff0fa;
+    border: 2px dashed #ff99cc;
+    padding: 60px; /* LEBIH BESAR */
+    border-radius: 30px;
+    box-shadow: 0 0 30px #ffb3d9, 0 0 15px #ff99cc inset;
+    text-align: center;
+    max-width: 500px; /* LEBIH LEBAR */
+  }
+  
+  .glow-title {
+    color: #ff33cc;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 0 0 5px #ff99cc, 0 0 10px #ff33cc;
+    font-size: 22px; /* DIBESARKAN */
+    margin-bottom: 35px;
+  }
+  
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* RUANG LEBIH ANTARA BUTANG */
+  }
+  
+  .y2k-btn {
+    background: linear-gradient(90deg, #ff66cc, #ff99cc);
+    color: #fff;
+    font-size: 18px; /* DIBESARKAN */
+    padding: 15px 25px; /* LEBIH BESAR */
+    text-decoration: none;
+    border: 2px solid #ffccff;
+    border-radius: 18px;
+    box-shadow: 0 0 15px #ff99cc, 0 0 7px #ff66cc inset;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .y2k-btn:hover {
+    background: #cc00cc;
+    box-shadow: 0 0 25px #ff66cc, 0 0 12px #ff33cc inset;
+    transform: scale(1.08);
+  }
+  

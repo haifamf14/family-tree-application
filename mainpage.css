@@ -1,0 +1,98 @@
+body {
+    font-family: 'Orbitron', sans-serif;
+    background: linear-gradient(135deg, #fceaff, #ffd6f7);
+    color: #2b2b2b;
+    margin: 0;
+    padding: 0;
+    image-rendering: pixelated;
+  }
+  
+  header {
+    background: linear-gradient(to right, #ff9ce3, #ffbae9);
+    text-align: center;
+    padding: 50px 20px;
+    font-family: 'Press Start 2P', cursive;
+    box-shadow: 0 5px 20px rgba(255, 153, 204, 0.6);
+    border-bottom: 3px dashed #ff66cc;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #ff33cc;
+    text-shadow: 0 0 5px #ff99cc, 0 0 15px #ff66cc;
+    text-align: center;
+    align-items: center;
+  }
+  
+  header p {
+    font-size: 1em;
+    margin-top: 12px;
+    color: white;
+    text-shadow: 0 0 3px #cc00cc;
+  }
+  
+  .container {
+    max-width: 850px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.95);
+    border: 3px dashed #ff66cc;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 25px #ffc1e3, 0 0 10px #ff99cc inset;
+  }
+  
+  h2 {
+    color: #cc00cc;
+    border-bottom: 2px dotted #ff99cc;
+    padding-bottom: 10px;
+    margin-top: 0;
+    text-shadow: 0 0 3px #ff99cc;
+  }
+  
+  ul {
+    list-style: square;
+    padding-left: 25px;
+  }
+  
+  ul li {
+    margin-bottom: 10px;
+    font-size: 1.05em;
+  }
+  
+  .button-center {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 14px 30px;
+    background: linear-gradient(to right, #ff66cc, #ff99cc);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 12px #ff99cc, 0 0 6px #ff66cc inset;
+    border: 2px solid #ffccff;
+    text-shadow: 0 0 3px #fff;
+  }
+  
+  .btn:hover {
+    background: #cc00cc;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff66cc, 0 0 10px #ff33cc inset;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9em;
+    color: #663366;
+    background: #fff0f7;
+    border-top: 2px dashed #ffc1e3;
+    text-shadow: 0 0 2px #ff99cc;
+  }
+  

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Family Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .top-banner {
+            background-color: rgb(202, 13, 107);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1000;
+        }
+        
+        .banner-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .home-button {
+            background-color: pink;
+            color: black;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+        
+        .home-button:hover {
+            background-color: #2980b9;
+        }
+        
+        #map { 
+            height: calc(100vh - 60px);
+            width: 100%;
+        }
+        
+        .family-icon {
+            border-radius: 50%;
+            border: 2px solid pink;
+            box-shadow: 0 0 10px pink;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 10px 2px pink; }
+            50% { box-shadow: 0 0 20px 8px hotpink; }
+            100% { box-shadow: 0 0 10px 2px pink; }
+        }
+        
+        /* Popup styling */
+        .leaflet-popup-content {
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .leaflet-popup-content img {
+            border-radius: 50%;
+            margin-bottom: 5px;
+        }
+        
+        /* Statistics panel styling */
+        .stats-panel {
+            position: absolute;
+            top: 75px;
+            right: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-height: 80vh;
+            overflow-y: auto;
+            width: 250px;
+        }
+        
+        .stats-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: rgb(202, 13, 107);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        
+        .stats-item {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .stats-region {
+            font-weight: bold;
+        }
+        
+        .stats-count {
+            background-color: pink;
+            color: black;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-banner">
+        <div class="banner-title">Family Locations</div>
+        <a href="index.html" class="home-button">Home</a>
+    </div>
+    
+    <div id="map"></div>
+    
+    <!-- Statistics Panel -->
+    <div class="stats-panel">
+        <div class="stats-title">Family Members by Region</div>
+        <div id="stats-content"></div>
+    </div>
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize map centered on Malaysia
+        var map = L.map('map').setView([4.2105, 101.9758], 6);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Family members data (replace with your own)
+        var family = [
+            {
+                name: "Umi",
+                photo: "icon/umi.jpg",
+                coords: [1.7333304, 103.8999964], // Johor
+                region: "Johor"
+            },
+            {
+                name: "Abah",
+                photo: "icon/abah.jpg",
+                coords: [1.6766, 104.0209], // Johor
+                region: "Penang"
+            },
+            {
+                name: "Nia",
+                photo: "icon/niaa.jpg",
+                coords: [3.2517, 101.7358], // Gombak
+                region: "Kuala Lumpur"
+            },
+            {
+                name: "Ammar",
+                photo: "icon/ammar.jpg",
+                coords: [1.4839, 110.3926], // Sarawak
+                region: "Sarawak"
+            },
+              {
+                name: "Haifa",
+                photo: "icon/haifa.jpg",
+                coords: [4.2330, 100.6330], // Perak
+                region: "Perak"
+            },
+              {
+                name: "Pakngah",
+                photo: "assets/j12.jpg",
+                coords: [3.0449, 101.4456], // Selangor
+                region: "Selangor"
+            },
+              {
+                name: "Maklang",
+                photo: "assets/k6.jpg",
+                coords: [5.3895, 100.5634], // Kedah
+                region: "Kedah"
+            },
+               {
+                name: "Cik Mira",
+                photo: "assets/k2.jpg",
+                coords: [5.3895, 100.5634], // Kedah
+                region: "Kedah"
+            },
+               {
+                name: "Tokmek",
+                photo: "icon/tokmek.jpg",
+                coords: [5.7461, 102.1861], // Kelantan
+                region: "Kelantan"
+            },
+               {
+                name: "Mak Uda",
+                photo: "assets/j9.jpg",
+                coords: [1.7206, 103.9647], // Johor
+                region: "Johor"
+            },
+               {
+                name: "Mak Uteh",
+                photo: "assets/j4.jpg",
+                coords: [1.7428, 103.8895], // Johor
+                region: "Johor"
+            },
+               {
+                name: "Maksu",
+                photo: "assets/j7.jpg",
+                coords: [1.4830, 103.7500], // Johor
+                region: "Johor"
+            },
+
+               {
+                name: "Mak andak",
+                photo: "assets/j8.jpg",
+                coords: [3.7634, 103.2202], // Pahang
+                region: "Pahang"
+            },
+              {
+                name: "Maklong",
+                photo: "assets/k12.jpg",
+                coords: [6.1399, 102.2422], // Kelantan
+                region: "Kelantan"
+            }
+        ];
+
+        // Calculate region statistics
+        function calculateRegionStats() {
+            var stats = {};
+            
+            family.forEach(function(member) {
+                if (!stats[member.region]) {
+                    stats[member.region] = 0;
+                }
+                stats[member.region]++;
+            });
+            
+            return stats;
+        }
+        
+        // Display region statistics
+        function displayRegionStats() {
+            var stats = calculateRegionStats();
+            var statsContent = document.getElementById('stats-content');
+            statsContent.innerHTML = '';
+            
+            // Convert to array and sort by count (descending)
+            var sortedStats = Object.keys(stats).map(function(region) {
+                return { region: region, count: stats[region] };
+            }).sort(function(a, b) {
+                return b.count - a.count;
+            });
+            
+            sortedStats.forEach(function(item) {
+                var statItem = document.createElement('div');
+                statItem.className = 'stats-item';
+                statItem.innerHTML = `
+                    <span class="stats-region">${item.region}</span>
+                    <span class="stats-count">${item.count}</span>
+                `;
+                statsContent.appendChild(statItem);
+            });
+        }
+        
+        // Add family members to map
+        family.forEach(function(member) {
+            var icon = L.icon({
+                iconUrl: member.photo,
+                iconSize: [50, 50],
+                className: 'family-icon'
+            });
+            
+            var popupContent = `
+                <img src="${member.photo}" width="50" height="50" alt="${member.name}">
+                <div>${member.name}</div>
+                <div style="font-size:12px;color:#777;">${member.region}</div>
+            `;
+            
+            L.marker(member.coords, {icon: icon})
+                .addTo(map)
+                .bindPopup(popupContent);
+        });
+        
+        // Display the statistics
+        displayRegionStats();
+        
+        // Add a scale control
+        L.control.scale().addTo(map);
+        
+        // Add a button to fit all markers in view
+        var fitBoundsButton = L.easyButton({
+            position: 'topright',
+            leafletClasses: true,
+            states: [{
+                stateName: 'fit-bounds',
+                icon: 'fa-globe',
+                title: 'Show all family members',
+                onClick: function(btn, map) {
+                    var bounds = new L.LatLngBounds();
+                    family.forEach(function(member) {
+                        bounds.extend(member.coords);
+                    });
+                    map.fitBounds(bounds);
+                }
+            }]
+        }).addTo(map);
+    </script>
+    
+    <!-- Add Font Awesome for the globe icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Add Leaflet.EasyButton for the fit bounds control -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+</body>
+</html>

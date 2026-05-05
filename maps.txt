@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Family Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { height: 100vh; }
+        .family-icon {
+            border-radius: 50%;
+            border: 2px solid pink;
+            box-shadow: 0 0 10px pink;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 10px 2px pink; }
+            50% { box-shadow: 0 0 20px 8px hotpink; }
+            100% { box-shadow: 0 0 10px 2px pink; }
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize map centered on Malaysia
+        var map = L.map('map').setView([4.2105, 101.9758], 6);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Family members data (replace with your own)
+        var family = [
+            {
+                name: "Mom",
+                photo: "https://randomuser.me/api/portraits/women/44.jpg",
+                coords: [3.139, 101.6869] // Kuala Lumpur
+            },
+            {
+                name: "Dad",
+                photo: "https://randomuser.me/api/portraits/men/45.jpg",
+                coords: [5.4141, 100.3288] // Penang
+            }
+            // Add more family members here
+        ];
+
+        family.forEach(function(member) {
+            var icon = L.icon({
+                iconUrl: member.photo,
+                iconSize: [50, 50],
+                className: 'family-icon'
+            });
+            L.marker(member.coords, {icon: icon})
+                .addTo(map)
+                .bindPopup(member.name);
+        });
+    </script>
+</body>
+</html>
